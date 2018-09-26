@@ -3,7 +3,7 @@ import java.io.*;
 import java.nio.file.*;
 public class Graph
 {
-    HashMap<Character, Node> gNodes = new HashMap();
+    HashMap<Character, Node> gNodes = new HashMap<Character, Node>();
 
     public void insert(String coordinates)
     {

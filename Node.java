@@ -2,7 +2,7 @@ import java.util.*;
 public class Node
 {
     char data;
-    HashMap<Character, Edge> edges = new HashMap();
+    HashMap<Character, Edge> edges = new HashMap<Character, Edge>();
     Node(char data)
     {
         this.data = data;
