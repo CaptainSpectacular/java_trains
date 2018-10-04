@@ -4,13 +4,10 @@ public class NodeTests
     {
         Node n = new Node('A');
         if (n.data == 'A' && n.edges.isEmpty())
-        {
             System.out.println("passed: nodeCreation");
-        }
+
         else
-        {
             System.out.println("failed: nodeCreation");
-        }
     }
 
     public void edgeInsertion()
@@ -27,12 +24,9 @@ public class NodeTests
         node1.insertEdge(edge3);
 
         if (node1.edges.containsKey('A') && node1.edges.containsKey('B') && node1.edges.containsKey('C'))
-        {
             System.out.println("passed: edgeInsertion");
-        }
+
         else
-        {
             System.out.println("failed: edgeInsertion");
-        }
     }
 }

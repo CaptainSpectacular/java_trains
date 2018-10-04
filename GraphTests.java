@@ -4,9 +4,7 @@ public class GraphTests
     {
         Graph g = new Graph();
         if (g != null)
-        {
             System.out.println("passed: graphCreation");
-        }
     }
 
     public void graphInsertion()
@@ -15,13 +13,10 @@ public class GraphTests
         g.insert("AB5");
         
         if (g.gNodes.size() == 2)
-        {
             System.out.println("passed: graphInsertion");
-        }
+
         else
-        {
             System.out.println("failed: graphInsertion");
-        }
     }
 
     public void graphInsertionWithDuplicateNodes()
@@ -32,13 +27,10 @@ public class GraphTests
         g.insert("BC4");
 
         if (g.gNodes.size() == 3)
-        {
             System.out.println("passed: graphInsertWithDuplicateNodes");
-        }
+
         else
-        {
             System.out.println("failed: graphInsertWithDuplicateNodes");
-        }
     }
 
     public void graphInsertArray()
@@ -49,13 +41,10 @@ public class GraphTests
         g.insertArray(coords);
 
         if (g.gNodes.size() == 5)
-        {
             System.out.println("passed: graphInsertArray");
-        }
+
         else
-        {
             System.out.println("failed: graphInsertArray");
-        }
     }
 
     public void graphRouteDistance()
@@ -91,13 +80,10 @@ public class GraphTests
             System.out.println("Expected 22, got " + distance4);
         }
         else if (no_route != "NO SUCH ROUTE")
-        {
             System.out.println("failed: graphRouteDistance.");
-        }
+
         else
-        {
             System.out.println("passed: graphRouteDistance.");
-        }
     }
 
     public void graphFindRoutesWithMaxStops()
@@ -109,9 +95,8 @@ public class GraphTests
         int result = g.findRoutesWithMaxStops('C', 'C', 3); 
 
         if (result == 2)
-        {
             System.out.println("passed: graphFindRoutesWithMaxStops");
-        }
+
         else
         {
             System.out.println("failed: graphFindRoutesWithMaxStops");
@@ -128,9 +113,8 @@ public class GraphTests
         int result = g.findRoutesWithExactStops('A', 'C', 4); 
 
         if (result == 3)
-        {
             System.out.println("passed: graphFindRoutesWithExactStops");
-        }
+
         else
         {
             System.out.println("failed: graphFindRoutesWithExactStops");
@@ -147,18 +131,16 @@ public class GraphTests
         int result2 = g.shortestDistance('B', 'B');
 
         if (result1 == 9)
-        {
             System.out.println("passed: shortestDistance1");
-        }
+
         else
         {
             System.out.println("failed: shortestDistance1");
             System.out.println("Got: " + Integer.toString(result1));
         }
         if (result2 == 9)
-        {
             System.out.println("passed: shortestDistance2");
-        }
+
         else
         {
             System.out.println("failed: shortestDistance2");
@@ -174,9 +156,8 @@ public class GraphTests
 
         int result = g.findRoutesWithMaxDistance('C', 'C', 30, 30);
         if (result == 7)
-        {
             System.out.println("Passed: graphRoutesWithMaxDistance");
-        }
+
         else
         {
             System.out.println("Failed: graphRoutesWithMaxDistance");
@@ -190,9 +171,8 @@ public class GraphTests
         g.importFile("SampleFile.txt");
 
         if (g.gNodes.size() == 5)
-        {
             System.out.println("Passed: graphImportFile");
-        }
+        
         else
         {
             System.out.println("failed: graphImportFile");

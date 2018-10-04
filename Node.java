@@ -11,11 +11,10 @@ public class Node
     void insertEdge(Edge edge)
     {
         if (!edges.containsKey(edge.endPoint.data))
-        {
             edges.put(edge.endPoint.data, edge);
-        }
     }
 
+    // Not used.
     public char minDistance()
     {
        char min = '0'; 

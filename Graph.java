@@ -36,18 +36,15 @@ public class Graph
             int next = i + 2;
             Node node = gNodes.get(coordinates.charAt(i));
             if (node.edges.get(coordinates.charAt(next)) == null)
-            {
                 return "NO SUCH ROUTE";
-            }
+
             if (next == coordinates.length() - 1)
             {
                 sum += node.edges.get(coordinates.charAt(next)).distance;
                 break; 
             }
             else
-            {
                 sum += node.edges.get(coordinates.charAt(next)).distance;
-            }
         }
 
         return Integer.toString(sum);
@@ -56,9 +53,7 @@ public class Graph
     public void insertArray(String coordinates[])
     {
         for (int i = 0; i < coordinates.length; i++)
-        {
-            this.insert(coordinates[i]);
-        }
+            insert(coordinates[i]);
     }
 
     public int findRoutesWithMaxStops(char start, char end, int max_stops)
@@ -68,14 +63,10 @@ public class Graph
         if (max_stops > 0)
         {
             if (start == end)
-            {
                 found++;
-            }
 
             for (Map.Entry<Character, Edge> entry : start_node.edges.entrySet())
-            {
                 found += findRoutesWithMaxStops(entry.getKey(), end, max_stops - 1);
-            }
         }
         return found;
     }
@@ -87,20 +78,29 @@ public class Graph
         if (stops > 0)
         {
             for (Map.Entry<Character, Edge> entry : start_node.edges.entrySet())
-            {
                 if (stops > 0)
-                {
                     found += findRoutesWithExactStops(entry.getKey(), end, stops - 1);
-                }
-            }
         }
         else if (start == end)
-        {
             found++;
-        }
 
         return found;
     }
+
+    private int someHelper(char start, char end, int stops)
+    {
+        int found = 0;
+        Node start_node = gNodes.get(start);
+       
+        if (stops < 0)
+            found += someHelper(start, end, stops - 1);
+
+        else if (start == end)
+            found++;
+
+        return found;
+    }
+
 
     public int shortestDistance(char start, char end)
     {
@@ -137,6 +137,7 @@ public class Graph
         return 9;
     }
 
+    // Not used currently.
     public Node minDist(HashMap<Character, Edge> queue)
     {
         char min = '1';
@@ -162,14 +163,10 @@ public class Graph
         if (max_distance > 0)
         {
             if (start == end && max_distance != original_distance) 
-            {
                 found++;
-            }
 
             for (Map.Entry<Character, Edge> entry : start_node.edges.entrySet())
-            {
                 found += findRoutesWithMaxDistance(entry.getKey(), end, max_distance - entry.getValue().distance, original_distance);
-            }
         }
         return found;
     }
