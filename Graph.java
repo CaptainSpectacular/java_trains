@@ -56,18 +56,16 @@ public class Graph
             insert(coordinates[i]);
     }
 
-    public int findRoutesWithMaxStops(char start, char end, int max_stops)
+    public int findRoutesWithMaxStops(char start, char end, int max_stops, boolean stops_taken)
     {
         int found = 0;
         Node start_node = gNodes.get(start);
-        if (max_stops > 0)
-        {
-            if (start == end)
-                found++;
+        if (start == end && stops_taken)
+            found++;
 
+        if (max_stops > 0)
             for (Map.Entry<Character, Edge> entry : start_node.edges.entrySet())
-                found += findRoutesWithMaxStops(entry.getKey(), end, max_stops - 1);
-        }
+                found += findRoutesWithMaxStops(entry.getKey(), end, max_stops - 1, true);
         return found;
     }
 

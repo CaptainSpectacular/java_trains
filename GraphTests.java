@@ -92,15 +92,25 @@ public class GraphTests
         String coords[] = { "AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2", "EB3", "AE7" };
         g.insertArray(coords);
 
-        int result = g.findRoutesWithMaxStops('C', 'C', 3); 
+        int result1 = g.findRoutesWithMaxStops('C', 'C', 3, false); 
+        int result2 = g.findRoutesWithMaxStops('A', 'E', 3, false); 
 
-        if (result == 2)
-            System.out.println("passed: graphFindRoutesWithMaxStops");
+        if (result1 == 2)
+            System.out.println("passed: graphFindRoutesWithMaxStops1");
 
         else
         {
-            System.out.println("failed: graphFindRoutesWithMaxStops");
-            System.out.println("Got: " + Integer.toString(result));
+            System.out.println("failed: graphFindRoutesWithMaxStops1");
+            System.out.println("Got: " + Integer.toString(result1));
+        }
+
+        if (result2 == 4)
+            System.out.println("passed: graphFindRoutesWithMaxStops2");
+
+        else
+        {
+            System.out.println("failed: graphFindRoutesWithMaxStops2");
+            System.out.println("Got: " + Integer.toString(result2));
         }
     }
 
