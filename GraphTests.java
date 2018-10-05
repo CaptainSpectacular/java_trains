@@ -7,6 +7,19 @@ public class GraphTests
             System.out.println("passed: graphCreation");
     }
 
+    public void graphSingleInsertion()
+    {
+        Graph g = new Graph();
+        g.insertSingle('A');
+
+        if (g.gNodes.size() == 1)
+            System.out.println("passed: graphSingleInsertion");
+        
+        else
+            System.out.println("failed: graphSingleInsertion");
+
+    }
+
     public void graphInsertion()
     {
         Graph g = new Graph();
@@ -164,7 +177,7 @@ public class GraphTests
         String coords[] = { "AB5", "BC4", "CD8", "DC8", "DE6", "AD5", "CE2", "EB3", "AE7" };
         g.insertArray(coords);
 
-        int result = g.findRoutesWithMaxDistance('C', 'C', 30, 30);
+        int result = g.findRoutesWithMaxDistance('C', 'C', 30, false);
         if (result == 7)
             System.out.println("Passed: graphRoutesWithMaxDistance");
 

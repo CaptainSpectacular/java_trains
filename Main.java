@@ -23,6 +23,7 @@ public class Main
         
         // Run the graph tests.
         gt.graphCreation();
+        gt.graphSingleInsertion();
         gt.graphInsertion();
         gt.graphInsertionWithDuplicateNodes();
         gt.graphInsertArray();
